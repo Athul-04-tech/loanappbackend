@@ -70,6 +70,16 @@ A production pipeline should run `npm ci`, build the TypeScript output with `npm
 
 Required secrets: `EC2_HOST`, `EC2_SSH_KEY`, `EC2_USER`, `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `DB_PORT`, `JWT_SECRET`, `NODE_ENV`, and `PORT`.
 
+This repo includes `.github/workflows/deploy.yml`, which deploys to EC2 on every push to `main`.
+
+Required GitHub Actions secrets:
+
+- `EC2_HOST`: EC2 public IP or DNS, for example `16.170.238.199`
+- `EC2_USER`: SSH user, for example `ubuntu`
+- `EC2_SSH_KEY`: private key content for SSH access
+
+The server keeps its own `/home/ubuntu/loanappbackend/.env`; do not commit `.env` to Git.
+
 ## AWS EC2 Deployment
 
 Deploy on Ubuntu with Node.js, PM2, Nginx, and MySQL or RDS. Nginx should reverse proxy port 80/443 to the Node process on `localhost:3000`. Keep MySQL private unless remote access is required.
