@@ -1,0 +1,14 @@
+# This backend is a Node.js/Express app, so dependencies are installed from package.json.
+# Use this file as a deployment checklist, not as a Python pip requirements file.
+Node.js >= 20
+npm >= 10
+MySQL >= 8
+
+Install app dependencies with:
+npm ci
+
+Build with:
+npm run build
+
+Start with:
+npm start
